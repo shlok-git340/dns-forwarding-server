@@ -153,13 +153,13 @@ This allows DNS packets to reuse previously encoded domain labels efficiently.
 ```text
 
 Client
-   ↓
+   ||
 DNS Forwarding Server
-   ↓
+   ||
 Upstream Recursive Resolver (8.8.8.8)
-   ↓
+   ||
 DNS Forwarding Server
-   ↓
+   ||
 Client
 ```
 
