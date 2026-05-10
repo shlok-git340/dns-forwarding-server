@@ -1,6 +1,5 @@
 
 
-````markdown
 # DNS Forwarding Server
 
 A DNS forwarding server built from scratch in Python using UDP sockets and raw DNS packet parsing.
@@ -49,7 +48,7 @@ dns-forwarding-server/
 ├── README.md
 ├── requirements.txt
 └── .gitignore
-````
+
 
 ---
 
