@@ -1,4 +1,4 @@
-import socket
+
 from models import DnsHeader
 from serializer import (serialize_header,serialize_question)
 
@@ -30,3 +30,4 @@ def forward_question(
     answer_section = resolver_response[12 + question_size:]
     return answer_section
 
+#implement caching here
