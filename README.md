@@ -30,6 +30,7 @@ The server forwards incoming DNS queries to an upstream recursive resolver (such
 ---
 
 # Project Structure
+```text
 
 dns-forwarding-server/
 │
@@ -47,7 +48,7 @@ dns-forwarding-server/
 ├── README.md
 ├── requirements.txt
 └── .gitignore
-
+```
 
 ---
 
