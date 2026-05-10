@@ -150,6 +150,7 @@ This allows DNS packets to reuse previously encoded domain labels efficiently.
 
 # How It Works
 
+```text
 
 Client
    ↓
@@ -160,7 +161,7 @@ Upstream Recursive Resolver (8.8.8.8)
 DNS Forwarding Server
    ↓
 Client
-
+```
 
 The server acts as a DNS proxy:
 
@@ -245,5 +246,4 @@ This project helped me understand:
 
 * RFC 1035
 * DNS packet format documentation
-* Codecrafters DNS Server Challenge
 * dig utility
