@@ -31,7 +31,6 @@ The server forwards incoming DNS queries to an upstream recursive resolver (such
 
 # Project Structure
 
-```text
 dns-forwarding-server/
 │
 ├── app/
@@ -140,9 +139,9 @@ The server supports DNS compressed label parsing as defined in RFC 1035.
 
 Example compression pointer:
 
-```text
+
 c0 0c
-```
+
 
 This allows DNS packets to reuse previously encoded domain labels efficiently.
 
@@ -150,7 +149,7 @@ This allows DNS packets to reuse previously encoded domain labels efficiently.
 
 # How It Works
 
-```text
+
 Client
    ↓
 DNS Forwarding Server
@@ -160,7 +159,7 @@ Upstream Recursive Resolver (8.8.8.8)
 DNS Forwarding Server
    ↓
 Client
-```
+
 
 The server acts as a DNS proxy:
 
