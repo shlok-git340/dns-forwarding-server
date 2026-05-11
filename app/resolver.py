@@ -1,14 +1,22 @@
-
+import time
 from models import DnsHeader
 from serializer import (serialize_header,serialize_question)
+from protocol import DEFAULT_TTL
 
-def forward_question(
-    question,
-    dns_header,
-    resolver_ip,
-    resolver_port,
-    resolver_socket
-):
+cache = {}
+#cache dictonary == cache = {"google.com":(answer_section_bytes,expiry_time)}
+
+
+def forward_question(question,dns_header,resolver_ip,resolver_port,resolver_socket):
+    current_time = time.time()
+    if question.name in cache:
+        cached_answer , expiry = cache[question.name]
+        if current_time < expiry:
+            print(f"cache hit: {question.name}")
+            return cached_answer
+        else:
+            del cache[question.name]
+    
     forward_header = DnsHeader()
     forward_header.packet_id = dns_header.packet_id
     forward_header.qr = 0
@@ -28,6 +36,9 @@ def forward_question(
     resolver_response, _ = resolver_socket.recvfrom(512)
     question_size = len(serialize_question(question))
     answer_section = resolver_response[12 + question_size:]
+
+    expiry_time = current_time + DEFAULT_TTL
+    cache[question.name] = (answer_section,expiry_time)
+
     return answer_section
 
-#implement caching here
